@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root{
+    color-scheme: light dark;
+}
+:root[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #000000;
+  --contrast-color: #9b9b9b;
+}
+:root[data-theme="auto"] {
+  --bg: light-dark(#ffffff, #000000);
+  --text: light-dark(#000000, #ffffff);
+  --contrast-color: light-dark(#9b9b9b, #707070);
+}
+
+:root[data-theme="dark"] {
+  --bg: #000000;
+  --text: #ffffff;
+  --contrast-color: #707070;
+}
+
+*{
+    color: var(--text);
+    background: var(--bg);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Source Code Pro", monospace;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main{
+    --background: #ffffff;
+    display: flex;
+    overflow-x: hidden;
+    flex: 5;
+}
+header{
+    display: flex;
+    --background: #ffffff;
+    justify-content: center;
+}
+.row{
+    display: flex;
+    flex: 1;
+}
+nav{
+    --background: #ffffff;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+nav a{
+    text-decoration: none;
+}
+nav a:hover{
+    color: var(--contrast-color);
+}
+
+.about, .learn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --background: #ffffff;
+    flex: 1;
+    padding: 1rem;
+    margin: 2rem;
+}
+#themeToggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 12px;
+    padding:2px;
+}
+#themeToggle button:hover{
+    background: var(--contrast-color);
+}
+.theme-toggle{
+    display: flex;
+}
+.theme-buttons{
+    padding-left: 2px;
+}
+
+footer{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    --background: #ffffff;
+}
+
+form{
+    display: flex;
+    flex-direction:column;
+    flex:1;
+    margin:2rem;
+}
+input{
+    margin-bottom: 2rem;
+}
+form .submit{
+    margin:5rem;
+}
+
