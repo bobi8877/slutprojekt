@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <script src="app.js" defer></script>
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'auto');
+    </script>
 </head>
 <body>
     <?php require_once "_header.php"; ?>
@@ -18,7 +21,7 @@
             <div>
                 This website is a challenge site meant to challenge yourself and improve your skills in solving ciphers. You need an account to start solving ciphers, create one by pressing the register button. 
                 <br><br>There are three different difficulties of ciphers to solve, easy, medium, and hard. The easy ciphers are automatically generated with javascript, they are always five words long. The medium ciphers are usually longer and are all handmade, these should take more time. The most difficult ciphers usually have more than one layer of encryption and aren't as easy to bruteforce. Expect these to take many hours.
-                <br><br>You can see where you stand compared to other people by checking the leaderboards. Solving ciphers gives you points on the leaderboard. The easy ciphers give you 1 point, the medium ciphers give you 25 points and the hard ciphers give you 250 points, therefore, it is worth it to spend the time on the more difficult ciphers if you have enought experience.
+                <br><br>You can see where you stand compared to other people by checking the leaderboards. Solving ciphers gives you points on the leaderboard. The easy ciphers give you 1 point, the medium ciphers give you 25 points and the hard ciphers give you 750 points, therefore, it is worth it to spend the time on the more difficult ciphers if you have enought experience.
             </div>
         </div>
         <div class="learn">

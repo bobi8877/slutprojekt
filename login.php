@@ -12,6 +12,9 @@ if(isLevel(10)){
     <title>Document</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'auto');
+    </script>
 </head>
 <body>
     <?php require_once "_header.php"; ?>
@@ -35,6 +38,7 @@ if(isLevel(10)){
                 $_SESSION['mess']="Login successful!";
                 $_SESSION['level']=$row['userlevel'];
                 $_SESSION['id']=$row['id'];
+                $_SESSION['name']=$row['username'];
             }else{
                 $_SESSION['mess']="Login failed! Wrong username or password.";
 
@@ -42,12 +46,11 @@ if(isLevel(10)){
             header("Location: index.php");
         }
         if(isset($_GET['logout'])){
-            $_SESSION['name']="";
-            $_SESSION['level']="";
-            $_SESSION['id']="";
+            session_destroy();
             header("Location: index.php");
         }
         ?>
     </main>
+    <?php require_once "_footer.php"; ?>
 </body>
 </html>

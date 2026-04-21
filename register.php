@@ -21,6 +21,9 @@ if(isset($_POST['btn_reg'])){
     <title>Register</title>
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script>
+        document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'auto');
+    </script>
 </head>
 <body>
     <?php require_once "_header.php"; ?>
@@ -39,7 +42,7 @@ if(isset($_POST['btn_reg'])){
         <input type="email" name="mail" id="mail" placeholder="Your email adress" required>
         <label for="password">Password</label>
         <input type="password" name="password" id="password" placeholder="Password (min 8 chars)" required  pattern=".{8,}">
-        <input type="submit" name="btn_reg" value="Create user">
+        <input class="submit" type="submit" name="btn_reg" value="Create user">
     </form>
     <?php endif; ?>
     </main>

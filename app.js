@@ -10,4 +10,20 @@ function initTheme() {
   setTheme(saved);
 }
 
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector('.dropdown-menu').classList.toggle('open');
+    });
+}
+
+document.addEventListener('click', function (e) {
+  if (!e.target.closest('.dropdown')) {
+    document.querySelectorAll('.dropdown-menu').forEach(function (menu) {
+      menu.classList.remove('open');
+    });
+  }
+});
+
 initTheme();
