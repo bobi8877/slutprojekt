@@ -186,7 +186,7 @@ form .submit:hover{
     color: var(--text);
 }
 
-.cipher-text {
+.cipher-text{
     display: flex;
     justify-content: center;
     font-size: 1.3rem;
@@ -197,7 +197,7 @@ form .submit:hover{
     border-radius: 4px;
 }
 
-.cipherbox form, .hintbox form {
+.cipherbox form, .hintbox form{
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -206,23 +206,21 @@ form .submit:hover{
     margin-right: 0;
 }
 .cipherbox form .submit,
-.hintbox form button {
+.hintbox form button{
     margin: 0;
     padding: 0.75rem;
     border: 3px solid var(--contrast-color);
     border-radius: 4px;
     cursor: pointer;
-    text-transform: uppercase;
 }
 .cipherbox form .submit:hover,
-.hintbox form button:hover {
+.hintbox form button:hover{
     border-color: var(--text);
     color: var(--text);
 }
 
-.cipherbox a {
+.cipherbox a{
     padding: 10px;
-    text-transform: uppercase;
     color: var(--text);
     text-decoration: none;
     margin-top: auto;
@@ -257,4 +255,78 @@ form .submit:hover{
 }
 .ciphermenu li a:hover{
     color:var(--contrast-color)
+}
+
+.hardciphercontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leaderboard-wrap {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.leaderboard-wrap h1{
+    margin-bottom: 0.5rem;
+}
+
+.my-rank{
+    margin-bottom:1rem;
+}
+
+.leaderboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.leaderboard-table th,
+.leaderboard-table td{
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.leaderboard-table th:last-child,
+.leaderboard-table td:last-child {
+    text-align: right;
+}
+
+.leaderboard-table tbody tr {
+    border-bottom: 1px dashed var(--contrast-color);
+}
+.rank-me {
+    outline: 3px solid var(--contrast-color);
+    outline-offset: -3px;
+}
+
+.you-badge {
+    display: inline-block;
+    background: var(--contrast-color);
+    font-size: 0.75rem;
+    color: var(--text);
+    font-weight: 700;
+    padding: 1px 6px;
+    border-radius: 10px;
+    margin-left: 6px;
+}
+
+.strange-art {
+    width: 250px;
+}
+.hardcipherform input{
+    padding:0.25rem;
+    border: 2px solid var(--contrast-color);
+}
+.hardcipherform .submit{
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 2px solid var(--contrast-color);
 }

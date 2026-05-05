@@ -1,12 +1,20 @@
 <?php require_once("asset.php");
-if(!isLevel(5)){ 
+if (!isLevel(5)) {
     header("Location: index.php");
+    exit;
 }
  
 $wordList = ["apple","brave","cloud","dance","eagle","frost","grape",
              "honey","ivory","jolly","lemon","mango","night","ocean",
              "piano","quest","river","stone","tiger","ultra","vivid",
-             "water","xenon","yacht","zebra"];
+             "water","xenon","yacht","zebra", "magic", "light", "abide",
+             "bloom", "crisp", "dwell", "ember", "feast", "glide", "harsh",
+             "inlet", "joint", "karma", "latch", "medal", "nudge", "orbit",
+             "shard", "bluff", "crown", "drift", "elbow", "fling", "groan",
+             "hinge", "infer", "kneel", "lucid", "mercy", "novel", "porch",
+             "squat", "pride", "sweep", "thorn", "blaze", "crane", "daisy",
+             "evoke", "fable", "giant", "hiker", "amble", "resin", "brook",
+             "charm", "gloss", "thugs", "sahur"];
  
 function caesarEncrypt($text, $shift) {
     return preg_replace_callback('/[a-z]/', function($m) use ($shift) {
@@ -36,41 +44,39 @@ function railFence($text, $rails = 3) {
 // Generate new cipher if requested or none exists
 if (!isset($_SESSION['cipher']) || isset($_GET['new'])) {
     shuffle($wordList);
-    $words = array_slice($wordList, 0, 5);
+    $words  = array_slice($wordList, 0, 5);
     $phrase = implode(' ', $words);
  
     $ciphers = ['caesar', 'atbash', 'railfence'];
-    $type = $ciphers[array_rand($ciphers)];
+    $type    = $ciphers[array_rand($ciphers)];
  
     switch ($type) {
         case 'caesar':
-            $shift = rand(1, 25);
+            $shift     = rand(1, 25);
             $encrypted = caesarEncrypt($phrase, $shift);
-            $name = "Caesar Cipher";
-            $hint = "Shift: $shift";
+            $name      = "Caesar Cipher";
+            $hint      = "Shift: $shift";
             break;
         case 'atbash':
             $encrypted = atbash($phrase);
-            $name = "Atbash Cipher";
-            $hint = "The alphabet is reversed — A becomes Z, B becomes Y, etc.";
+            $name      = "Atbash Cipher";
+            $hint      = "The alphabet is reversed — A becomes Z, B becomes Y, etc.";
             break;
         case 'railfence':
             $encrypted = railFence(str_replace(' ', '', $phrase));
-            $name = "Rail Fence Cipher";
-            $hint = "Write letters in a zigzag over 3 rows, then read across each row.";
+            $name      = "Rail Fence Cipher";
+            $hint      = "Write letters in a zigzag over 3 rows, then read across each row.";
             break;
     }
  
     $_SESSION['cipher'] = [
-        'answer' => $phrase,
-        'encrypted' => $encrypted,
-        'name' => $name,
-        'hint' => $hint,
-        'hint_revealed' => false
+        'answer'         => $phrase,
+        'encrypted'      => $encrypted,
+        'name'           => $name,
+        'hint'           => $hint,
+        'hint_revealed'  => false
     ];
  
-    // Redirect to strip ?new from the URL so subsequent form POSTs
-    // don't re-trigger cipher generation.
     header("Location: easyciphers.php");
     exit;
 }
@@ -78,18 +84,18 @@ if (!isset($_SESSION['cipher']) || isset($_GET['new'])) {
 // Check answer
 $result = '';
 if (isset($_POST['answer'])) {
-    // Normalize both sides: lowercase, trim, strip internal spaces.
-    // This handles Rail Fence (encrypted without spaces) and Caesar/Atbash equally.
     $userAnswer    = str_replace(' ', '', strtolower(trim($_POST['answer'])));
     $correctAnswer = str_replace(' ', '', $_SESSION['cipher']['answer']);
+ 
     if ($userAnswer === $correctAnswer) {
         if (!$_SESSION['cipher']['hint_revealed']) {
-            // TODO: award point to user here
+            // Award 1 point — easy ciphers are random so no duplicate-solve check needed
+            awardPoints($conn, $_SESSION['id'], 1);
             $_SESSION['flash'] = 'correct';
         } else {
             $_SESSION['flash'] = 'correct_no_point';
         }
-        unset($_SESSION['cipher']); // Clear so a fresh cipher is generated on next load
+        unset($_SESSION['cipher']);
         header('Location: easyciphers.php');
         exit;
     } else {
@@ -97,7 +103,7 @@ if (isset($_POST['answer'])) {
     }
 }
  
-// Pick up flash message set by a correct answer redirect
+// Pick up flash message
 if (isset($_SESSION['flash'])) {
     $result = $_SESSION['flash'];
     unset($_SESSION['flash']);
@@ -115,7 +121,7 @@ $c = $_SESSION['cipher'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Ciphers</title>
+    <title>Document</title>
     <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
     <script>
@@ -139,16 +145,16 @@ $c = $_SESSION['cipher'];
                 <input class="submit" type="submit" value="Submit">
             </form>
             <p class="result-msg"><?php
-                if ($result === 'correct') echo 'Correct! +1 point awarded.';
-                elseif ($result === 'correct_no_point') echo 'Correct! (No point awarded — hint was used.)';
-                elseif ($result === 'wrong') echo 'Try again';
+                if ($result === 'correct')          echo 'Correct! +1 point awarded.';
+                elseif ($result === 'correct_no_point') echo 'Correct! (No point awarded, hint was used.)';
+                elseif ($result === 'wrong')        echo 'Try again';
             ?></p>
             <a href="easyciphers.php?new=1">New cipher</a>
         </div>
         <div class="hintbox">
             <h2>Hint &lpar;No points will be awarded for the solve&rpar;</h2>
             <?php if ($c['hint_revealed']): ?>
-                <p><?php echo htmlspecialchars($c['hint']); ?></p>
+                <p><?=htmlspecialchars($c['hint']); ?></p>
             <?php else: ?>
                 <form method="POST">
                     <button type="submit" name="hint">Reveal hint</button>

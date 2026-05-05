@@ -26,6 +26,7 @@ if(isLevel(10)){
             <label for="pass">Password</label>
             <input type="password" name="pass" placeholder="Password" required>
             <input class="submit" type="submit" name="btn_login" value="Log in">
+            <p>Don't have an account? <a href="register.php">Register here</a>.</p>
         </form>
         <?php
         if(isset($_POST['btn_login'])){

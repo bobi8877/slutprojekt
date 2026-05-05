@@ -29,6 +29,7 @@
             <div>
                 There are hundreds, if not thousands of different ways to encrypt a message, so it can be very daunting to get into it. To get started try reading about <a href="https://en.wikipedia.org/wiki/Cryptography">Cryptography in general</a>, and also some of the most common classic ways of encrypting messages, such as <a href="https://en.wikipedia.org/wiki/Vigen%C3%A8re_cipher">vigenére ciphers</a> or <a href="https://en.wikipedia.org/wiki/Caesar_cipher">caesar shift</a>. There are of course many more but there are good places to start.
                 <br><br> Once you have a basic understanding you should be aware of some great online tools for encryption and decryption, such as <a href="https://gchq.github.io/CyberChef/">CyberChef</a> and <a href="https://cryptii.com/">Cryptii</a>. AI chatbots are also great at the start, don't be afraid to use them if you need help.
+                <br><br> The more difficult ciphers are more multidisciplinary and require more creativity, none of them work in the exact same way, some has an image as a hint, some fit the more traditional definition of a cipher.
             </div>
         </div>
     </div> 

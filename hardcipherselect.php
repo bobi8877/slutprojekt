@@ -14,7 +14,7 @@
     <main>
         <div class="ciphermenu">
             <h1>Cipher selection</h1>
-            <p>Here are a number of difficult ciphers to choose from. The methods of encryption are not necessarily more advanced than easier ciphers, but they require an open mind. you have to use might not be much more advanced than the easier ciphers.</p>
+            <p>Here are a number of difficult ciphers to choose from. The methods of encryption are not necessarily more advanced than easier ciphers, but they require an open mind. you have to use might not be much more advanced than the easier ciphers. Everything given may or may not be of help.</p>
             <ul>
                 <li><a href="significationesoccultae.php">Significationes Occultae</a></li>
                 <li><a href="#">Lorem, ipsum dolor.</a></li>
