@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<?php require_once("asset.php"); ?>
+<?php require_once("asset.php"); 
+if (!isLevel(10)) {
+    header("Location: index.php");
+    exit;
+}
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">

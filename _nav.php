@@ -5,7 +5,6 @@
         <a href="#" class="dropdown-toggle">Solve</a>
         <div class="dropdown-menu">
             <a href="easyciphers.php">Easy ciphers</a>
-            <a href="#">Medium ciphers</a>
             <a href="hardcipherselect.php">Difficult ciphers</a>
         </div>
     </div>

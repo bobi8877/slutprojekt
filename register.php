@@ -47,6 +47,29 @@ if(isset($_POST['btn_reg'])){
     </form>
     <?php endif; ?>
     </main>
+    <script>
+    const username=document.getElementById("username");
+    names=[
+        <?php
+            $sql="SELECT username FROM tbl_user";
+            $result=mysqli_query($conn, $sql);
+            while($row=mysqli_fetch_assoc($result)): ?>
+                "<?=$row['username']?>",
+        <?php endwhile; ?>
+    ]
+    username.addEventListener("input", function(){
+        if(names.includes(username.value)){
+            username.setCustomValidity("Username is already taken");
+            username.reportValidity();
+
+        }else{
+            username.setCustomValidity("");
+            username.reportValidity();
+
+        }
+    });
+    
+    </script>
     
     <?php require_once "_footer.php"; ?>
 </body>

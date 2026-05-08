@@ -52,4 +52,15 @@ function hasSolved($conn, $userId, $cipher_name) {
     $result = mysqli_query($conn, "SELECT id FROM tbl_solved WHERE user_id = $userId AND cipher_name = '$name'");
     return mysqli_num_rows($result) > 0;
 }
+
+function isUserTaken($username){
+    global $conn;
+    $sql="SELECT username FROM tbl_user WHERE username='$username'";
+    $result=mysqli_query($conn, $sql);
+    if(mysqli_num_rows($result)>0){
+        return true;
+    }else{
+        return false;
+    }
+}
 ?>

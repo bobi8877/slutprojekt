@@ -97,6 +97,9 @@ footer{
     justify-content: center;
     --background: #ffffff;
 }
+footer a{
+    text-decoration: none;
+}
 
 form{
     display: flex;
@@ -304,7 +307,7 @@ form .submit:hover{
 }
 .rank-me {
     outline: 3px solid var(--contrast-color);
-    outline-offset: -3px;
+    outline-offset: -2px;
 }
 
 .you-badge {

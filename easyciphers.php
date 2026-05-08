@@ -1,5 +1,5 @@
 <?php require_once("asset.php");
-if (!isLevel(5)) {
+if (!isLevel(10)) {
     header("Location: index.php");
     exit;
 }
@@ -26,9 +26,7 @@ function atbash($text) {
         return chr(122 - (ord($m[0]) - 97));
     }, $text);
 }
-function reverseWords($text) {
-    return implode(' ', array_map('strrev', explode(' ', $text)));
-}
+
 function railFence($text, $rails = 3) {
     $fence = array_fill(0, $rails, []);
     $rail = 0; $dir = 1;
@@ -90,7 +88,7 @@ if (isset($_POST['answer'])) {
     if ($userAnswer === $correctAnswer) {
         if (!$_SESSION['cipher']['hint_revealed']) {
             // Award 1 point — easy ciphers are random so no duplicate-solve check needed
-            awardPoints($conn, $_SESSION['id'], 1);
+            awardPoints($conn, $_SESSION['id'], 3);
             $_SESSION['flash'] = 'correct';
         } else {
             $_SESSION['flash'] = 'correct_no_point';
@@ -136,7 +134,7 @@ $c = $_SESSION['cipher'];
         <div class="infobox">
             <h2>Cipher Challenge</h2>
             <p>A set of five random words have been encrypted with a simple method of encryption. The words most likely aren't a coherent sentence.</p>
-            <p class="points">+1 pt</p>
+            <p class="points">+3 pt</p>
         </div>
         <div class="cipherbox">
             <p class="cipher-text"><?php echo htmlspecialchars($c['encrypted']); ?></p>
@@ -145,7 +143,7 @@ $c = $_SESSION['cipher'];
                 <input class="submit" type="submit" value="Submit">
             </form>
             <p class="result-msg"><?php
-                if ($result === 'correct')          echo 'Correct! +1 point awarded.';
+                if ($result === 'correct')          echo 'Correct! +3 point awarded.';
                 elseif ($result === 'correct_no_point') echo 'Correct! (No point awarded, hint was used.)';
                 elseif ($result === 'wrong')        echo 'Try again';
             ?></p>
