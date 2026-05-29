@@ -5,9 +5,13 @@
         <a href="#" class="dropdown-toggle">Solve</a>
         <div class="dropdown-menu">
             <a href="easyciphers.php">Easy ciphers</a>
+            <a href="mediumciphers.php">Medium ciphers</a>
             <a href="hardcipherselect.php">Difficult ciphers</a>
         </div>
     </div>
+    <?php endif; ?>
+    <?php if(isLevel(100)): ?>
+    <a href="useradmin.php">Useradmin</a>
     <?php endif; ?>
     <a href="leaderboard.php">Leaderboard</a>
     <?php if(!isLevel(10)):?>

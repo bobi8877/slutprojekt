@@ -129,12 +129,12 @@ form .submit:hover{
     cursor: pointer;
 }
 
-.dropdown {
+.dropdown{
   position: relative;
   display: inline-block;
 }
 
-.dropdown-menu {
+.dropdown-menu{
   display: none;
   position: absolute;
   top: 100%;
@@ -154,10 +154,10 @@ form .submit:hover{
   background: var(--bg);         
 }
 
-.dropdown-menu a:hover {
+.dropdown-menu a:hover{
   color: var(--contrast-color);  
 }
-.dropdown-menu.open {
+.dropdown-menu.open{
   display: block;
 }
 .infobox, .cipherbox, .hintbox{
@@ -171,7 +171,7 @@ form .submit:hover{
     margin-right: 3rem;
 }
 
-.infobox, .cipherbox, .hintbox {
+.infobox, .cipherbox, .hintbox{
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -185,7 +185,7 @@ form .submit:hover{
     border-left: dashed 0.5px var(--contrast-color);
 }
 
-.infobox h2, .hintbox h2 {
+.infobox h2, .hintbox h2{
     color: var(--text);
 }
 
@@ -332,4 +332,81 @@ form .submit:hover{
     margin-top: 0;
     margin-bottom: 0;
     border: 2px solid var(--contrast-color);
+}
+.admin-wrap {
+    max-width: 800px;
+}
+
+.admin-message {
+    color: var(--contrast-color);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.edit-user-title {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cancel-link {
+    align-self: center;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+
+.cancel-link:hover {
+    color: var(--contrast-color);
+    text-decoration: underline;
+}
+
+.action-link {
+    margin-right: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.action-link:hover {
+    color: var(--contrast-color);
+    text-decoration: underline;
+}
+
+.leaderboard-table .delete-form {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    flex: none;
+    flex-direction: row;
+}
+
+.leaderboard-table .delete-form input[type="submit"] {
+    margin: 0;
+    padding: 4px 8px;
+    border: 1px solid var(--contrast-color);
+    background: transparent;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.leaderboard-table .delete-form input[type="submit"]:hover {
+    background: var(--contrast-color);
+    color: var(--bg);
+}
+
+.leaderboard-table form,
+.admin-wrap form {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block;
+}
+
+.leaderboard-table input,
+.admin-wrap input {
+    margin: 0 !important;
+    padding: 4px 8px !important;
+}
+
+.leaderboard-table .submit,
+.admin-wrap .submit {
+    margin: 0 !important;
+    padding: 4px 8px !important;
 }
