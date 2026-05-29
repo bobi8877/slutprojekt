@@ -83,6 +83,10 @@ $database = "cipher_challenge";
 - Nyckelbaserade chiffer
 - Dolda nycklar och ledtrådar
 
+### Svår nivå
+- Handskapade problem
+- Kräver kreativitet och kunskap
+
 ---
 
 ## Leaderboard
@@ -98,7 +102,5 @@ Spelare får poäng beroende på hur svår utmaningen är. Leaderboarden uppdate
 - Achievement-system
 - Multiplayer/events
 - Responsiv mobilversion
-
-## Licens
-
-Detta projekt är skapat för utbildning och lärande inom kryptografi och webbutveckling.
+- Förbättrad säkerhet
+---
