@@ -393,7 +393,7 @@ form .submit:hover{
 }
 
 .leaderboard-table form,
-.admin-wrap form {
+.admin-wrap form{
     margin: 0 !important;
     padding: 0 !important;
     display: inline-block;
